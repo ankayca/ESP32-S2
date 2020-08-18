@@ -26,7 +26,7 @@ extern "C" {
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
-
+#include "esp_netif.h"
 #include "lwip/api.h"
 #include <driver/adc.h>
 #include "esp_wifi.h"
@@ -100,10 +100,6 @@ int ws_server_send_text_clients_from_callback(char* url,char* msg,uint64_t len);
 int ws_server_send_text_all_from_callback(char* msg,uint64_t len); // sends text to all clients
 
 int ws_server_ping(); // sends a ping to all connected clients
-void wifi_setup();
-void server_handle_task(void* pvParameters);
-void server_task(void* pvParameters);
-void http_serve(struct netconn *conn);
 
 
 #endif
